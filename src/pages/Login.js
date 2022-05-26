@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -18,13 +19,13 @@ const Login = () => {
             </p>
             <form>
               <div class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-                <p class="text-center font-semibold mx-4 mb-0">SIGN IN</p>
+                <p class="text-center font-semibold mx-4 mb-0">LOGIN</p>
               </div>
 
               <div class="mb-6">
                 <input
                   type="text"
-                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-campgreen/50 focus:border-green-500 focus:outline-none"
                   id="exampleFormControlInput2"
                   placeholder="Email address"
                 />
@@ -33,7 +34,7 @@ const Login = () => {
               <div class="mb-6">
                 <input
                   type="password"
-                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-campgreen/50 focus:border-green-500 focus:outline-none"
                   id="exampleFormControlInput2"
                   placeholder="Password"
                 />
@@ -60,19 +61,19 @@ const Login = () => {
 
               <div class="text-center lg:text-left">
                 <button
-                  type="button"
+                  type="submit"
                   class="inline-block px-7 py-3 bg-campgreen/80 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-campgreen/90 hover:shadow-lg focus:bg-campgreen/100 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-campgreen/100 active:translate-y-1 active:shadow-lg transition duration-150 ease-in-out"
                 >
                   Login
                 </button>
                 <p class="text-sm font-semibold mt-2 pt-1 mb-0">
                   Don't have an account?
-                  <a
-                    href="#!"
-                    class="text-green-600 ml-2 hover:text-green-800 focus:text-green-700 transition duration-200 ease-in-out"
+                  <Link
+                    to="/register"
+                    class="text-green-600 ml-2 uppercase hover:text-green-800 focus:text-green-700 transition duration-200 ease-in-out"
                   >
                     Register
-                  </a>
+                  </Link>
                 </p>
               </div>
             </form>
