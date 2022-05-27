@@ -1,9 +1,11 @@
 import React from "react";
-import destinations from "./static/destinations.json";
+import destinations from "../static/destinations.json";
 const PopDestinations = () => {
   return (
-    <div className="px-20 py-10 pb-32 bg-campgreen/50">
-      <p className="font-bold text-white text-4xl">Popular Destinations</p>
+    <div className="px-20 pt-24 pb-32 bg-campgreen/50">
+      <p className="font-bold ml-16 text-white text-4xl">
+        Popular Destinations
+      </p>
       <div className="w-full pt-5 flex  overflow-x-scroll pb-8 mt-5">
         {destinations?.map((dest, idx) => (
           <div

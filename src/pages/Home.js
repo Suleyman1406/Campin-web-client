@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import PopDestinations from "../components/PopDestinations";
 import Search from "../components/Search";
+import TopCampsites from "../components/TopCampsites";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Navbar />
       <Search />
       <PopDestinations />
+      <TopCampsites />
     </div>
   );
 };
