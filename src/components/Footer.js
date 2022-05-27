@@ -6,10 +6,10 @@ import {
 } from "react-icons/ai";
 const Footer = () => {
   return (
-    <div className="w-full h-fit bg-white/40 flex flex-row justify-evenly px-8 py-10 items-center">
+    <div className="w-full h-fit bg-white/40 flex flex-row justify-evenly px-2 md:px-8 py-10 items-center">
       <div>
         <p className="font-logo text-2xl">Campinn</p>
-        <p className="w-96 p-2 text-gray-500">
+        <p className="w-44 md:w-96 p-2 text-gray-500">
           Our mission is to make it easy to find and book the UK's best camping,
           glamping and touring holidays.
         </p>
@@ -18,7 +18,7 @@ const Footer = () => {
         </p>
       </div>
       <div>
-        <div className="my-2 flex flex-row justify-around">
+        <div className="my-1 md:my-2 flex flex-row justify-around">
           <a
             target="_blank"
             href="https://github.com/Suleyman1406"
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
         <a
           href="https://dadashow.me"
-          className="drop-shadow-xl font-semibold text-gray-700 hover:text-gray-500 duration-200 "
+          className="text-sm md:text-base drop-shadow-xl  font-semibold text-gray-700 hover:text-gray-500 duration-200 "
         >
           Designed & Built by <br /> Suleyman Dadashov
         </a>
