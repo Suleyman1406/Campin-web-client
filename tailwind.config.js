@@ -10,7 +10,7 @@ module.exports = {
         campgreen: "#84cc16",
       },
       backgroundImage: {
-        searchImage: "url('/public/images/home-bg.jpg')",
+        searchImage: "url('/public/images/home-bg-1.jpg')",
       },
     },
     fontFamily: {
@@ -18,5 +18,5 @@ module.exports = {
       logo: ["Macondo", "cursive"],
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

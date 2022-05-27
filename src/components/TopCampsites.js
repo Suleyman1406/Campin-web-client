@@ -3,11 +3,11 @@ import React from "react";
 import campsites from "../static/campsites.json";
 const TopCampsites = () => {
   return (
-    <div className="px-20 pt-24 pb-32 bg-white">
-      <p className="font-bold text-right mr-16 text-campgreen text-4xl">
+    <div className="px-20 pt-16 pb-24 bg-campgreen/50">
+      <p className="font-bold text-right mr-16 text-white text-4xl">
         Top Campsites
       </p>
-      <div className="w-full pt-5 flex h-[520px] overflow-x-scroll overflow-y-visible pb-8 mt-5">
+      <div className="w-full pt-5 flex h-[520px] overflow-x-scroll overflow-y-visible pb-0 mt-5 scrollbar-thin scrollbar-thumb-white scrollbar-track-transparent">
         {campsites?.map((campsite) => (
           <div className="min-w-[450px] cursor-pointer group relative m-1 ">
             <img
@@ -15,7 +15,7 @@ const TopCampsites = () => {
               alt={campsite?.name}
               className="rounded-3xl w-full h-[300px] object-cover group-hover:-translate-y-6 duration-500"
             />
-            <div className="absolute p-2 w-[80%] group-hover:translate-y-8 h-[200px] bg-white -translate-x-[50%] -translate-y-[25%] shadow-md top-[50%] left-[50%] duration-300 rounded-[24px]">
+            <div className="absolute p-2 w-[80%] group-hover:translate-y-6 h-[200px] bg-white -translate-x-[50%] -translate-y-[25%] shadow-md top-[50%] left-[50%] duration-300 rounded-[24px]">
               <p className="text-lg font-semibold">{campsite?.title}</p>
               <Rating
                 name="read-only"
