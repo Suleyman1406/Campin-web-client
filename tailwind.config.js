@@ -10,7 +10,7 @@ module.exports = {
         campgreen: "#84cc16",
       },
       backgroundImage: {
-        searchImage: "url('/public/images/home-bg-1.jpg')",
+        searchImage: "url('/public/images/home-bg.jpg')",
       },
     },
     fontFamily: {
