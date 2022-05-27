@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  important: true,
   theme: {
     extend: {
+      zIndex: {
+        5000: "5000",
+      },
       colors: {
         campgreen: "#84cc16",
       },
