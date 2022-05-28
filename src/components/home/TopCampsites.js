@@ -1,6 +1,6 @@
 import { Rating } from "@mui/material";
 import React from "react";
-import campsites from "../static/campsites.json";
+import campsites from "../../static/campsites.json";
 const TopCampsites = () => {
   return (
     <>
@@ -9,8 +9,11 @@ const TopCampsites = () => {
           Top Campsites
         </p>
         <div className="w-full pt-5 flex h-[520px] overflow-x-auto overflow-y-visible pb-0 mt-5  customScrollBar whiteScrollBar">
-          {campsites?.map((campsite) => (
-            <div className="min-w-[300px] md:min-w-[450px] cursor-pointer group relative m-1 ">
+          {campsites?.map((campsite, idx) => (
+            <div
+              key={idx}
+              className="min-w-[300px] md:min-w-[450px] cursor-pointer group relative m-1 "
+            >
               <img
                 src={campsite?.image}
                 alt={campsite?.name}

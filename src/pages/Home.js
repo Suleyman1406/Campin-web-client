@@ -1,9 +1,9 @@
 import React from "react";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import PopDestinations from "../components/PopDestinations";
-import Search from "../components/Search";
-import TopCampsites from "../components/TopCampsites";
+import Footer from "../components/general/Footer";
+import Navbar from "../components/general/Navbar";
+import PopDestinations from "../components/home/PopDestinations";
+import Search from "../components/home/Search";
+import TopCampsites from "../components/home/TopCampsites";
 
 const Home = () => {
   return (

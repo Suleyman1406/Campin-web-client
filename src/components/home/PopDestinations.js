@@ -1,5 +1,5 @@
 import React from "react";
-import destinations from "../static/destinations.json";
+import destinations from "../../static/destinations.json";
 const PopDestinations = () => {
   return (
     <>
@@ -10,6 +10,7 @@ const PopDestinations = () => {
         <div className="w-full pt-5 flex  overflow-x-auto pb-8 mt-5 customScrollBar greenScrollBar">
           {destinations?.map((dest, idx) => (
             <div
+              key={idx}
               style={{
                 zIndex: idx,
               }}
@@ -24,8 +25,11 @@ const PopDestinations = () => {
                 <p className="text-xl font-semibold ">{dest?.name}</p>
                 <p className=" text-gray-500 p-2 ">{dest?.title}</p>
                 <div className="mb-2 mt-auto">
-                  {dest?.tags?.map((tag) => (
-                    <span className="text-xs mx-[0.125rem] bg-gray-500 text-white px-2 py-1 rounded-full">
+                  {dest?.tags?.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs mx-[0.125rem] bg-gray-500 text-white px-2 py-1 rounded-full"
+                    >
                       #{tag}
                     </span>
                   ))}
