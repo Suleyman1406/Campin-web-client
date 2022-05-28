@@ -2,3 +2,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.whiteScrollBar::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background: #fff;
+}
+
+.greenScrollBar::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background: #84cc16;
+}
+.customScrollBar::-webkit-scrollbar {
+    height: 10px;
+}
+ 
+.customScrollBar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+ 

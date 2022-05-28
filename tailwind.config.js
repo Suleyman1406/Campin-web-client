@@ -18,5 +18,5 @@ module.exports = {
       logo: ["Macondo", "cursive"],
     },
   },
-  plugins: [require("tailwind-scrollbar")],
+  plugins: [],
 };

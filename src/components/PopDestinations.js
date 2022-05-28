@@ -7,7 +7,7 @@ const PopDestinations = () => {
         <p className="font-bold ml-16 text-campgreen text-4xl">
           Popular Destinations
         </p>
-        <div className="w-full pt-5 flex  overflow-x-scroll pb-8 mt-5 scrollbar-thin scrollbar-thumb-campgreen scrollbar-track-transparent">
+        <div className="w-full pt-5 flex  overflow-x-auto pb-8 mt-5 customScrollBar greenScrollBar">
           {destinations?.map((dest, idx) => (
             <div
               style={{

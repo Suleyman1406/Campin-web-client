@@ -8,7 +8,7 @@ const TopCampsites = () => {
         <p className="font-bold text-right mr-16 text-white text-4xl">
           Top Campsites
         </p>
-        <div className="w-full pt-5 flex h-[520px] overflow-x-scroll overflow-y-visible pb-0 mt-5 scrollbar-thin scrollbar-thumb-white scrollbar-track-transparent">
+        <div className="w-full pt-5 flex h-[520px] overflow-x-auto overflow-y-visible pb-0 mt-5  customScrollBar whiteScrollBar">
           {campsites?.map((campsite) => (
             <div className="min-w-[300px] md:min-w-[450px] cursor-pointer group relative m-1 ">
               <img
