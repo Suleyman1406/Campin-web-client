@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Filter from "./Filter";
 import CampsitesList from "./list";
-import Map from "./Map";
+import Map from "../general/Map";
 import campsites from "../../static/campsites.json";
 const Search = () => {
   const defaultPosition = {
@@ -17,7 +17,13 @@ const Search = () => {
           <CampsitesList setPosition={setPosition} />
         </div>
         <div className="w-[40%] z-0 inline-block">
-          <Map position={position} />
+          <Map
+            position={position}
+            containerStyle={{
+              width: "100%",
+              height: "75vh",
+            }}
+          />
         </div>
       </div>
     </div>

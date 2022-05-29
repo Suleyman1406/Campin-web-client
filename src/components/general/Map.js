@@ -1,12 +1,7 @@
 import React from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
-const containerStyle = {
-  width: "100%",
-  height: "75vh",
-};
-
-const Map = ({ position }) => {
+const Map = ({ position, containerStyle }) => {
   const { isLoaded } = useJsApiLoader({
     id: "marker-example",
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,

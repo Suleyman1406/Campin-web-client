@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div className="h-14 bg-campgreen flex items-center px-10 shadow-md justify-between">
       <Link to="/">
-        <p className="font-logo text-3xl text-white">Campin</p>
+        <p className="font-logo text-3xl text-white drop-shadow-lg">Campin</p>
       </Link>
       <div>
         <Link to="/login">
