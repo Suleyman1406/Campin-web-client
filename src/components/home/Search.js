@@ -1,17 +1,14 @@
 import { Autocomplete, TextField } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-
 const StyledAutocomplete = styled(Autocomplete)({
-  ".css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
+  "& label.Mui-focused": {
     color: "#84cc16",
   },
-  "& .MuiAutocomplete-inputRoot": {
-    "&.css-1a1fmpi-MuiInputBase-root-MuiInput-root:after": {
-      borderColor: "#84cc16",
-    },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#84cc16",
   },
 });
 
@@ -30,12 +27,18 @@ const staticDestinations = [
 
 const Search = () => {
   const navigate = useNavigate();
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState([]);
+  useEffect(() => {
+    console.log(searchValue);
+  }, [searchValue]);
   const search = (e) => {
     e.preventDefault();
     console.log("geldi");
-    if (searchValue !== "") {
-      navigate(`/search/${searchValue}`);
+    if (searchValue && searchValue.length > 0) {
+      let searchKey = String(searchValue[0].label).toLowerCase();
+      for (var i = 1; i < searchValue.length; i++)
+        searchKey += `-${String(searchValue[i].label).toLowerCase()}`;
+      navigate(`/search/${searchKey}`);
     }
   };
   return (
@@ -52,33 +55,35 @@ const Search = () => {
           </p>
           <form
             onSubmit={search}
-            className="w-[80%] md:w-[60%] lg:w-[50%] h-[4.5rem] sticky top-2 bg-white border hover:border-campgreen/70 duration-100 focus:shadow-lg border-campgreen/50 shadow-sm flex flex-row justify-around items-center px-4 shadow-campgreen/40 rounded-2xl "
+            className="w-[80%] md:w-[60%] lg:w-[50%] h-fit py-1 pt-[0.5rem] sticky top-2 bg-white border hover:border-campgreen/70 duration-100 focus:shadow-lg border-campgreen/50 shadow-sm flex flex-row justify-around items-center px-4 shadow-campgreen/40 rounded-2xl "
           >
-            <BiSearchAlt2 className="text-2xl w-10 translate-y-[1px] text-gray-300" />
+            <BiSearchAlt2 className="text-2xl w-10 translate-y-[2px] text-gray-300" />
             <StyledAutocomplete
               id="auto-complete"
               multiple
               options={staticDestinations}
-              style={{ border: "none" }}
-              inputProps={{ color: "#84cc16" }}
               onChange={(e, record) => {
-                console.log(e);
-                console.log(record);
+                setSearchValue(record);
               }}
               autoComplete
+              limitTags={2}
               includeInputInList
+              classes={{ input: { "&::placeholder": { color: "red" } } }}
               sx={{
                 width: "calc(100% - 150px)",
-                transform: "translateY(-7px)",
-                color: "#84cc16",
-                outlineColor: "#84cc16",
+                transform: "translateY(-8px)",
               }}
               renderInput={(params) => (
                 <TextField
                   {...params}
                   variant="standard"
                   label="Destinations"
-                  style={{ color: "#84cc16", outlineColor: "#84cc16" }}
+                  color="info"
+                  style={{
+                    color: "#84cc16",
+                    borderColor: "red",
+                    outlineColor: "#84cc16",
+                  }}
                   placeholder="Select Destination"
                 />
               )}
