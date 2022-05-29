@@ -1,11 +1,11 @@
 import { Rating } from "@mui/material";
 import React, { useEffect } from "react";
-import { FaCampground } from "react-icons/fa";
 import { RiCaravanFill } from "react-icons/ri";
-import { GiCaravan, GiBarracksTent } from "react-icons/gi";
+import { GiCaravan, GiBarracksTent, GiCampingTent } from "react-icons/gi";
 import ImageCarousel from "./ImageCarousel";
 import { useNavigate } from "react-router-dom";
 import Map from "../general/Map";
+import Comments from "./Comments";
 const Details = ({ campsite }) => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -41,7 +41,7 @@ const Details = ({ campsite }) => {
           </span>
         </div>
         <div className="absolute right-7 top-7 flex flex-row space-x-3">
-          <FaCampground className="bg-white p-2 rounded-full text-4xl" />
+          <GiCampingTent className="bg-white p-2 rounded-full text-4xl" />
           <RiCaravanFill className="bg-white p-2 rounded-full text-4xl" />
           <GiCaravan className="bg-white p-2 rounded-full text-4xl" />
           <GiBarracksTent className="bg-white p-2 rounded-full text-4xl" />
@@ -79,6 +79,9 @@ const Details = ({ campsite }) => {
               height: "350px",
             }}
           />
+        </div>
+        <div>
+          <Comments />
         </div>
       </div>
     </div>

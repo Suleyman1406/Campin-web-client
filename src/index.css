@@ -21,4 +21,17 @@
 .customScrollBar::-webkit-scrollbar-track {
     background-color: transparent;
 }
+
+.signBox .loginBtn, .signBox .signBtn{
+    color: #84cc16!important;
+    border-color: #84cc16!important;
+    background-color: transparent!important;
+}
+
+.signBox .loginBtn:hover, .signBox .signBtn:hover {
+    opacity: 0.7;
+}
+.halfDiv{
+    margin-left: 25px!important;
+}
  
