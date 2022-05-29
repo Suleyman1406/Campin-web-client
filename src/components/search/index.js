@@ -1,139 +1,18 @@
 import React, { useState } from "react";
-import {
-  Autocomplete,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { DateRangePicker } from "react-date-range";
-import { MdOutlineDateRange } from "react-icons/md";
+import Filter from "./Filter";
+import CampsitesList from "./list";
+import Map from "./Map";
 
-const StyledAutocomplete = styled(Autocomplete)({
-  "& label.Mui-focused": {
-    color: "#84cc16",
-  },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "#84cc16",
-  },
-});
-
-const staticDestinations = [
-  { label: "Antalya" },
-  { label: "Bodrum" },
-  { label: "Izmir" },
-  { label: "Istanbul" },
-  { label: "Marmaris" },
-  { label: "Muğla" },
-  { label: "Çeşme" },
-  { label: "Alaçatı" },
-  { label: "Kuşadası" },
-  { label: "Alanya" },
-];
-
-var monthArr = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "June",
-  "July",
-  "Aug",
-  "Sept",
-  "Oct",
-  "Nov",
-  "Dec",
-];
 const Search = () => {
-  const [isOpenDate, setOpenDate] = useState(false);
-  const [selectionRange, setSelectionRange] = useState({
-    startDate: new Date(),
-    endDate: new Date(),
-    key: "selection",
-  });
-  const [guestCount, setGuestCount] = useState(1);
-  const startDate = selectionRange.startDate;
-  const endDate = selectionRange.endDate;
-  const handleSelect = (date) => {
-    setSelectionRange(date.selection);
-  };
   return (
     <div className="h-[2000px]">
-      <div className="w-full h-[4.5rem] sticky top-0 py-2 px-6 rounded-b-[3rem] flex flex-row justify-center  items-center shadow-md shadow-campgreen bg-campgreen">
-        <div className="min-w-[25%] max-w-[50%] h-fit px-3 pt-2 mx-3 bg-white shadow-sm shadow-white rounded-xl">
-          <StyledAutocomplete
-            id="auto-complete"
-            multiple
-            options={staticDestinations}
-            onChange={(e, record) => {
-              // setSearchValue(record);
-            }}
-            autoComplete
-            limitTags={3}
-            includeInputInList
-            sx={{
-              width: "100%",
-              transform: "translateY(-8px)",
-            }}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                variant="standard"
-                label="Destinations"
-                placeholder="Select Destination"
-              />
-            )}
-          />
+      <Filter />
+      <div className="px-5 my-10 w-full flex flex-row">
+        <div className="w-[60%]">
+          <CampsitesList />
         </div>
-        <div className="bg-white relative min-w-[15%] mx-3 h-full shadow-sm shadow-white rounded-xl px-3 pt-2 flex items-center">
-          <div
-            onClick={() => setOpenDate((prev) => !prev)}
-            className="w-full cursor-pointer flex flex-row justify-between"
-          >
-            <p className="font-semibold mr-3">Date Range:</p>
-            <p className="text-gray-500">
-              {`${monthArr[startDate.getMonth()]} 
-              ${startDate.getDate()}, ${startDate.getFullYear()} ~
-              ${monthArr[endDate.getMonth()]} 
-              ${endDate.getDate()}, ${endDate.getFullYear()}`}
-            </p>
-            <MdOutlineDateRange className="ml-3 -translate-y-[0.05rem] text-xl" />
-          </div>
-          <div className="absolute top-20">
-            {isOpenDate && (
-              <DateRangePicker
-                color="#84cc16"
-                borderColor="#84cc16"
-                rangeColors={"#84cc16"}
-                ranges={[selectionRange]}
-                onChange={handleSelect}
-              />
-            )}
-          </div>
-        </div>
-        <div className="w-[15%] h-full px-3 pt-2 shadow-sm mx-3 bg-white shadow-white rounded-xl">
-          <StyledAutocomplete
-            id="auto-complete"
-            options={["1", "2", "3", "4", "5", "6", "7", "8"]}
-            onChange={(e) => setGuestCount(Number(e.target.value))}
-            autoComplete
-            defaultValue={guestCount}
-            includeInputInList
-            sx={{
-              width: "100%",
-              transform: "translateY(-8px)",
-            }}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                variant="standard"
-                label="Guests"
-                placeholder="Select Guest Count"
-              />
-            )}
-          />
+        <div className="w-[40%] z-0">
+          <Map />
         </div>
       </div>
     </div>
