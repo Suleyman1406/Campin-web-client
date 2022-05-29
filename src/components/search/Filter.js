@@ -55,8 +55,8 @@ const Filter = () => {
     setSelectionRange(date.selection);
   };
   return (
-    <div className="w-full h-[4.5rem] z-10 sticky top-0 py-2 px-6 rounded-b-[3rem] flex flex-row justify-center  items-center shadow-md shadow-gray-400 bg-campgreen">
-      <div className="min-w-[25%] max-w-[50%] h-fit px-3 pt-2 mx-3 bg-white shadow-sm shadow-white rounded-xl">
+    <div className="w-full h-fit space-y-2 sm:space-y-0 sm:h-[4.5rem] z-10 sticky top-0 py-2 px-6 rounded-b-[3rem] flex flex-col sm:flex-row justify-center  items-center shadow-md shadow-gray-400 bg-campgreen">
+      <div className="w-[90%] sm:min-w-[25%] sm:max-w-[50%] h-fit px-3 pt-2 mx-3 bg-white shadow-sm shadow-white rounded-xl">
         <StyledAutocomplete
           id="auto-complete"
           multiple
@@ -81,7 +81,7 @@ const Filter = () => {
           )}
         />
       </div>
-      <div className="bg-white relative min-w-[15%] mx-3 h-full shadow-sm shadow-white rounded-xl px-3 pt-2 flex items-center">
+      <div className="bg-white relative min-w-[15%] mx-3 h-full shadow-sm shadow-white rounded-xl px-1 sm:px-3 py-4 sm:pt-2 flex items-center">
         <div
           onClick={() => setOpenDate((prev) => !prev)}
           className="w-full cursor-pointer flex flex-row justify-between"
@@ -107,7 +107,7 @@ const Filter = () => {
           )}
         </div>
       </div>
-      <div className="w-[15%] h-full px-3 pt-2 shadow-sm mx-3 bg-white shadow-white rounded-xl">
+      <div className="w-[50%] sm:w-[15%] h-full px-3 pt-2 shadow-sm mx-3 bg-white shadow-white rounded-xl">
         <StyledAutocomplete
           id="auto-complete"
           options={["1", "2", "3", "4", "5", "6", "7", "8"]}

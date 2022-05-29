@@ -16,8 +16,8 @@ const Details = ({ campsite }) => {
   if (!campsite) return <></>;
   console.log(campsite);
   return (
-    <div className="px-7 py-5 ">
-      <div className="bg-gray-200 relative p-8 rounded-lg w-full ">
+    <div className="px-3 lg:px-7 py-2 lg:py-5 ">
+      <div className="bg-gray-100 relative p-3 md:p-5 lg:p-8 rounded-lg w-full ">
         <p className="text-2xl font-semibold">
           {campsite.title}
           <span className="text-xl text-gray-500 ml-3">
@@ -40,14 +40,14 @@ const Details = ({ campsite }) => {
             </span>
           </span>
         </div>
-        <div className="absolute right-7 top-7 flex flex-row space-x-3">
+        <div className="lg:absolute mt-2 lg:mt-0 right-7 top-7 flex flex-row space-x-3">
           <GiCampingTent className="bg-white p-2 rounded-full text-4xl" />
           <RiCaravanFill className="bg-white p-2 rounded-full text-4xl" />
           <GiCaravan className="bg-white p-2 rounded-full text-4xl" />
           <GiBarracksTent className="bg-white p-2 rounded-full text-4xl" />
         </div>
-        <div className="w-full flex flex-row mt-6">
-          <div className="w-1/2">
+        <div className="w-full flex flex-col lg:flex-row mt-6">
+          <div className="w-full lg:w-1/2">
             <p className="tracking-wider text-xl leading-loose">
               {campsite.desc} <br />
               <br /> {campsite.desc}
@@ -67,11 +67,11 @@ const Details = ({ campsite }) => {
               Click to open in Google Map
             </a>
           </div>
-          <div className="w-1/2 px-8">
+          <div className="w-full lg:w-1/2 px-8 mt-5 lg:mt-0">
             <ImageCarousel />
           </div>
         </div>
-        <div className="w-[90%] h-[350px] mx-auto items-center  mt-5">
+        <div className="w-full md:w-[90%] h-[350px] mx-auto items-center  mt-5">
           <Map
             position={{ lat: campsite.lat, lng: campsite.lng }}
             containerStyle={{

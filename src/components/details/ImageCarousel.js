@@ -22,7 +22,7 @@ const ImageCarousel = () => {
           <img
             src={item}
             alt="deneme"
-            className="w-[70%] h-[500px] object-cover"
+            className="w-[95%] md:w-[80%] lg:w-[70%] h-[300px] md:h-[400px] lg:h-[500px] object-cover"
           />
         </div>
       ))}
