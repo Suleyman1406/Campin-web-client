@@ -1,98 +1,102 @@
 [
   {
     "title":"Fallow Fields Camping at Selson Farm",
-    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
+    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent.",
     "location":"Eastry, Kent",
-    "reviews":12,
+    "reviews":7,
     "rate":4.9,
-    "image":"/images/blank-image-1.jpg"
+    "image":"/images/blank-image-1.jpg",
+    "lat": 40.9373071,
+    "lng": 31.7407502
   },
   {
     "title":"Fallow Fields Camping at Selson Farm",
-    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
+    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent.",
     "location":"Eastry, Kent",
-    "reviews":12,
-    "rate":4.8,
-    "image":"/images/blank-image-2.jpeg"
+    "reviews":2,
+    "rate":2.4,
+    "image":"/images/blank-image-1.jpg",
+    "lat": 36.802172,
+    "lng": 28.099165
   },
   {
     "title":"Fallow Fields Camping at Selson Farm",
-    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
+    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent.",
     "location":"Eastry, Kent",
-    "reviews":12,
-    "rate":4.7,
-    "image":"/images/blank-image-1.jpg"
+    "reviews":123,
+    "rate":3.4,
+    "image":"/images/blank-image-1.jpg",
+    "lat": 37.4804465,
+    "lng": 30.9348755
   },
   {
     "title":"Fallow Fields Camping at Selson Farm",
-    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
+    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent.",
     "location":"Eastry, Kent",
-    "reviews":12,
-    "rate":4.5,
-    "image":"/images/blank-image-1.jpg"
+    "reviews":122,
+    "rate":4.10,
+    "image":"/images/blank-image-1.jpg",
+    "lat": 40.9373071,
+    "lng": 31.7407502
   },
   {
     "title":"Fallow Fields Camping at Selson Farm",
-    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
+    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent.  Bring your own tent or campervan, or glamp in a bell tent.  Bring your own tent or campervan, or glamp in a bell tent.",
     "location":"Eastry, Kent",
     "reviews":12,
     "rate":4.3,
-    "image":"/images/blank-image-1.jpg"
+    "image":"/images/blank-image-1.jpg",
+    "lat": 40.9373071,
+    "lng": 31.7407502
   },
   {
     "title":"Fallow Fields Camping at Selson Farm",
     "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
     "location":"Eastry, Kent",
-    "reviews":12,
-    "rate":3.89,
-    "image":"/images/blank-image-1.jpg"
+    "reviews":3,
+    "rate":4.9,
+    "image":"/images/blank-image-1.jpg",
+    "lat": 40.9373071,
+    "lng": 31.7407502
   },
   {
     "title":"Fallow Fields Camping at Selson Farm",
-    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
+    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.  Bring your own tent or campervan, or glamp in a bell tent.  Bring your own tent or campervan, or glamp in a bell tent.  Bring your own tent or campervan, or glamp in a bell tent. ",
     "location":"Eastry, Kent",
-    "reviews":12,
-    "rate":4.8,
-    "image":"/images/blank-image-1.jpg"
+    "reviews":10,
+    "rate":4.2,
+    "image":"/images/blank-image-1.jpg",
+    "lat": 40.9373071,
+    "lng": 31.7407502
   },
   {
     "title":"Fallow Fields Camping at Selson Farm",
-    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
+    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.  Bring your own tent or campervan, or glamp in a bell tent.  Bring your own tent or campervan, or glamp in a bell tent.  Bring your own tent or campervan, or glamp in a bell tent. ",
     "location":"Eastry, Kent",
     "reviews":12,
-    "rate":4.8,
-    "image":"/images/blank-image-1.jpg"
+    "rate":4.9,
+    "image":"/images/blank-image-1.jpg",
+    "lat": 40.9373071,
+    "lng": 31.7407502
   },
   {
     "title":"Fallow Fields Camping at Selson Farm",
-    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
+    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent. Bring your own tent or campervan, or glamp in a bell tent.",
     "location":"Eastry, Kent",
     "reviews":12,
-    "rate":4.8,
-    "image":"/images/blank-image-1.jpg"
+    "rate":3.9,
+    "image":"/images/blank-image-1.jpg",
+    "lat": 40.9373071,
+    "lng": 31.7407502
   },
   {
     "title":"Fallow Fields Camping at Selson Farm",
-    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
+    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.  Bring your own tent or campervan, or glamp in a bell tent.  Bring your own tent or campervan, or glamp in a bell tent.  Bring your own tent or campervan, or glamp in a bell tent.",
     "location":"Eastry, Kent",
     "reviews":12,
-    "rate":4.8,
-    "image":"/images/blank-image-2.jpeg"
-  },
-  {
-    "title":"Fallow Fields Camping at Selson Farm",
-    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
-    "location":"Eastry, Kent",
-    "reviews":12,
-    "rate":4.8,
-    "image":"/images/blank-image-2.jpeg"
-  },
-  {
-    "title":"Fallow Fields Camping at Selson Farm",
-    "desc":"A stunning fruit farm located two miles from Sandwich. Bring your own tent or campervan, or glamp in a bell tent.",
-    "location":"Eastry, Kent",
-    "reviews":12,
-    "rate":4.8,
-    "image":"/images/blank-image-1.jpg"
+    "rate":2.9,
+    "image":"/images/blank-image-1.jpg",
+    "lat": 40.9373071,
+    "lng": 31.7407502
   }
 ]

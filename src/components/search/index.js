@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import Filter from "./Filter";
 import CampsitesList from "./list";
 import Map from "./Map";
-
+import campsites from "../../static/campsites.json";
 const Search = () => {
+  const defaultPosition = {
+    lat: campsites[0].lat,
+    lng: campsites[0].lng,
+  };
+  const [position, setPosition] = useState(defaultPosition);
   return (
-    <div className="h-[2000px]">
+    <div className="">
       <Filter />
-      <div className="px-5 my-10 w-full flex flex-row">
-        <div className="w-[60%]">
-          <CampsitesList />
+      <div className="px-5 my-10">
+        <div className="w-[60%] px-10 inline-block">
+          <CampsitesList setPosition={setPosition} />
         </div>
-        <div className="w-[40%] z-0">
-          <Map />
+        <div className="w-[40%] z-0 inline-block">
+          <Map position={position} />
         </div>
       </div>
     </div>

@@ -39,7 +39,9 @@ const TopCampsites = () => {
                   {campsite?.location}
                 </p>
                 <p className="py-1 px-2 text-xs md:text-sm tracking-wide">
-                  {campsite?.desc}
+                  {campsite.desc.length <= 150
+                    ? campsite?.desc
+                    : campsite.desc.substring(0, 150) + "..."}
                 </p>
               </div>
             </div>

@@ -1,23 +1,15 @@
-import React, { useMemo, useState } from "react";
+import React from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
 const containerStyle = {
   width: "100%",
-  height: "80vh",
+  height: "75vh",
 };
 
-const center = {
-  lat: -33.89,
-  lng: 151.274,
-};
-const Map = () => {
+const Map = ({ position }) => {
   const { isLoaded } = useJsApiLoader({
     id: "marker-example",
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-  });
-  const [marker, setMarker] = useState({
-    lat: -33.89,
-    lng: 151.274,
   });
 
   const [map, setMap] = React.useState(null);
@@ -34,33 +26,24 @@ const Map = () => {
   };
 
   return isLoaded ? (
-    <>
-      <button onClick={() => setMarker({ lat: -31.12, lng: 151.12 })}>
-        Click me
-      </button>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        {/* Child components, such as markers, info windows, etc. */}
-        <>
-          {marker && (
-            <Marker
-              id="marker-example"
-              onPositionChanged={(e) => {
-                console.log("degisti");
-              }}
-              visible
-              onLoad={onMarkerLoad}
-              position={marker}
-            />
-          )}
-        </>
-      </GoogleMap>
-    </>
+    <GoogleMap
+      mapContainerStyle={containerStyle}
+      center={position}
+      zoom={10}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+    >
+      <>
+        {position && (
+          <Marker
+            id="marker-example"
+            visible
+            onLoad={onMarkerLoad}
+            position={position}
+          />
+        )}
+      </>
+    </GoogleMap>
   ) : (
     <></>
   );
