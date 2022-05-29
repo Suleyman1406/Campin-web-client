@@ -13,7 +13,7 @@ const center = {
 const Map = () => {
   const { isLoaded } = useJsApiLoader({
     id: "marker-example",
-    googleMapsApiKey: "AIzaSyAc7tEdrrE_GlUPY0xLxotEiKv91hJHJB8",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
   const [marker, setMarker] = useState({
     lat: -33.89,
