@@ -4,6 +4,22 @@
 @tailwind utilities;
 
 
+@layer components {
+  .account-tab-element {
+    @apply relative w-[300px] text-left text-[#999] bg-[#3e3f46] py-[25px] px-[30px] text-xl duration-300 cursor-pointer hover:bg-[#b4ed5c] hover:text-white  hover:-translate-x-[50px] hover:before:bg-[#84cc16] hover:after:bg-[#84cc16] 
+            before:content-[''] before:absolute before:top-0 before:left-[-40px] before:w-[40px] before:h-[100%] before:bg-[#2e3133] before:origin-right	before:skew-y-[45deg] before:duration-300 
+            after:content-[''] after:absolute after:top-[-40px] after:left-0 after:w-full after:h-[40px] after:bg-[#2e3133] after:origin-bottom after:skew-x-[45deg] after:duration-300
+            disabled:bg-[#b4ed5c] disabled:text-white disabled:-translate-x-[25px] disabled:before:bg-[#84cc16] disabled:after:bg-[#84cc16]
+            ;
+  }
+}
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 
 .whiteScrollBar::-webkit-scrollbar-thumb {
     border-radius: 100px;
@@ -33,5 +49,9 @@
 }
 .halfDiv{
     margin-left: 25px!important;
+}
+
+.shadow::after{
+  box-shadow: -100px 100px 20px rgba(0, 0, 0, 0.25);
 }
  

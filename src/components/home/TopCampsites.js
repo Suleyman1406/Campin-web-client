@@ -1,5 +1,6 @@
 import { Rating } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 import campsites from "../../static/campsites.json";
 const TopCampsites = () => {
   return (
@@ -8,7 +9,7 @@ const TopCampsites = () => {
         <p className="font-bold text-right mr-16 text-white text-4xl">
           Top Campsites
         </p>
-        <div className="w-full pt-5 flex h-[520px] overflow-x-auto overflow-y-visible pb-0 mt-5  customScrollBar whiteScrollBar">
+        <div className="w-full pt-5 flex h-[520px] relative overflow-x-auto overflow-y-visible pb-0 mt-5  customScrollBar whiteScrollBar">
           {campsites?.map((campsite, idx) => (
             <div
               key={idx}
@@ -43,6 +44,13 @@ const TopCampsites = () => {
                     ? campsite?.desc
                     : campsite.desc.substring(0, 150) + "..."}
                 </p>
+
+                <Link
+                  to={`/details/${campsite.id}`}
+                  className="text-white text-sm  font-semibold inline-block absolute right-2 bottom-2  px-2 py-1 bg-yellow-400 rounded-lg hover:opacity-80 duration-150 active:bg-yellow-300 active:translate-y-[0.1rem]"
+                >
+                  Click to Details...
+                </Link>
               </div>
             </div>
           ))}

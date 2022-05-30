@@ -41,6 +41,7 @@ const Search = () => {
       navigate(`/search/${searchKey}`);
     }
   };
+
   return (
     <>
       <div className="w-full">
@@ -61,6 +62,7 @@ const Search = () => {
             <StyledAutocomplete
               id="auto-complete"
               multiple
+              // loading={true}
               options={staticDestinations}
               onChange={(e, record) => {
                 setSearchValue(record);

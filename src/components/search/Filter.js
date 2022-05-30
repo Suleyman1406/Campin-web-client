@@ -81,7 +81,7 @@ const Filter = () => {
           )}
         />
       </div>
-      <div className="bg-white relative min-w-[15%] mx-3 h-full shadow-sm shadow-white rounded-xl px-1 sm:px-3 py-4 sm:pt-2 flex items-center">
+      <div className="text-xs md:text-base bg-white relative min-w-[15%] mx-3 h-full shadow-sm shadow-white rounded-xl px-1 sm:px-3 py-4 sm:pt-6 flex items-center">
         <div
           onClick={() => setOpenDate((prev) => !prev)}
           className="w-full cursor-pointer flex flex-row justify-between"
@@ -93,7 +93,7 @@ const Filter = () => {
               ${monthArr[endDate.getMonth()]} 
               ${endDate.getDate()}, ${endDate.getFullYear()}`}
           </p>
-          <MdOutlineDateRange className="ml-3 -translate-y-[0.05rem] text-xl" />
+          <MdOutlineDateRange className="ml-3 -translate-y-[0.05rem] text-base sm:text-xl" />
         </div>
         <div className="absolute top-20">
           {isOpenDate && (
