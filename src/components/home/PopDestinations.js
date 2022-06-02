@@ -1,12 +1,15 @@
 import React from "react";
 import destinations from "../../static/destinations.json";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 const PopDestinations = () => {
   return (
     <>
       <div className="px-6 md:px-12 lg:px-20 pt-8 md:pt-16 pb-12 md:pb-24 bg-white">
         <p className="font-bold ml-16 relative text-campgreen text-4xl">
-          Popular Destinations
+          <AnimationOnScroll animateOnce={true} animateIn="animate__rubberBand">
+            Popular Destinations
+          </AnimationOnScroll>
         </p>
         <div className="w-full pt-5 flex  overflow-x-auto pb-8 mt-5 customScrollBar greenScrollBar">
           {destinations?.map((dest, idx) => (

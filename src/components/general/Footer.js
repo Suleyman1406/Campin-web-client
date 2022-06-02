@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className="w-full h-fit bg-white/40 flex flex-row justify-evenly px-2 md:px-8 py-10 items-center">
       <div>
-        <p className="font-logo text-2xl">Campin</p>
+        <p className="font-logo text-2xl animate-wiggle inline-block">Campin</p>
         <p className="w-44 md:w-96 p-2 text-gray-500">
           Our mission is to make it easy to find and book the UK's best camping,
           glamping and touring holidays.
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
         <a
           href="https://dadashow.me"
-          className="text-sm md:text-base drop-shadow-xl  font-semibold text-gray-700 hover:text-gray-500 duration-200 "
+          className="text-sm md:text-base drop-shadow-xl font-semibold text-gray-700 hover:text-gray-500 duration-200 "
         >
           Designed & Built by <br /> Suleyman Dadashov
         </a>

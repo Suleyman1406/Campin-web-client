@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
+import Typed from "react-typed";
 const StyledAutocomplete = styled(Autocomplete)({
   "& label.Mui-focused": {
     color: "#84cc16",
@@ -47,16 +48,34 @@ const Search = () => {
       <div className="w-full">
         <div className="h-[80vh] bg-searchImage bg-no-repeat relative bg-center  bg-cover flex flex-col justify-center items-center">
           <p className="w-[80%] md:w-[60%] lg:w-[50%] text-white font-bold text-2xl md:text-4xl absolute top-[25%] drop-shadow-lg">
-            <span>Love camping and glamping?</span>
-            <br />
-            <span className="text-xl md:text-3xl">
-              Then you are in the{" "}
-              <span className="text-campgreen/90">right place.</span>
-            </span>
+            <div>
+              <Typed
+                strings={["Love camping and glamping?"]}
+                typeSpeed={60}
+                backSpeed={0}
+                startDelay={1000}
+              >
+                <span />
+              </Typed>
+            </div>
+            <div>
+              <Typed
+                strings={[
+                  "Then you are in the right place.",
+                  "Then you are in the Best Place.",
+                ]}
+                typeSpeed={80}
+                backSpeed={80}
+                startDelay={2500}
+                smartBackspace={true}
+              >
+                <span className="text-xl md:text-3xl" />
+              </Typed>
+            </div>
           </p>
           <form
             onSubmit={search}
-            className="w-[80%] md:w-[60%] lg:w-[50%] h-fit py-1 pt-[0.5rem] sticky top-2 bg-white border hover:border-campgreen/70 duration-100 focus:shadow-lg border-campgreen/50 shadow-sm flex flex-row justify-around items-center px-4 shadow-campgreen/40 rounded-2xl "
+            className="w-[80%] animate-comeFromLeftTop md:w-[60%] lg:w-[50%] h-fit py-1 pt-[0.5rem] sticky top-2 bg-white border hover:border-campgreen/70 duration-100 focus:shadow-lg border-campgreen/50 shadow-sm flex flex-row justify-around items-center px-4 shadow-campgreen/40 rounded-2xl "
           >
             <BiSearchAlt2 className="text-2xl w-10 translate-y-[2px] text-gray-300" />
             <StyledAutocomplete

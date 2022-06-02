@@ -1,5 +1,6 @@
 import { Rating } from "@mui/material";
 import React from "react";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 import { Link } from "react-router-dom";
 import campsites from "../../static/campsites.json";
 const TopCampsites = () => {
@@ -7,7 +8,9 @@ const TopCampsites = () => {
     <>
       <div className="px-6 md:px-12 lg:px-20 pt-8 md:pt-16 pb-12 md:pb-24 bg-campgreen/50">
         <p className="font-bold text-right mr-16 text-white text-4xl">
-          Top Campsites
+          <AnimationOnScroll animateOnce={true} animateIn="animate__rubberBand">
+            <h2>Top Campsites</h2>
+          </AnimationOnScroll>
         </p>
         <div className="w-full pt-5 flex h-[520px] relative overflow-x-auto overflow-y-visible pb-0 mt-5  customScrollBar whiteScrollBar">
           {campsites?.map((campsite, idx) => (

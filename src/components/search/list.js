@@ -14,7 +14,7 @@ const CampsitesList = ({ setPosition }) => {
             setPosition({ lat: campsite.lat, lng: campsite.lng });
           }}
           className={
-            "w-full cursor-pointer relative h-44 rounded-lg mb-6 shadow-sm overflow-hidden shadow-" +
+            "w-full cursor-pointer animate-comeFromLeft hover:bg-gray-100 relative h-44 rounded-lg mb-6 shadow-sm overflow-hidden shadow-" +
             (selectedCampsite === idx ? "campgreen" : "gray-600")
           }
         >

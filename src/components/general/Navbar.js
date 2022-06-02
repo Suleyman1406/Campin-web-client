@@ -15,18 +15,20 @@ const Navbar = () => {
   };
   const [isLoggedIn, setisLoggedIn] = useState(true);
   return (
-    <div className="h-16 bg-campgreen flex items-center px-12 shadow-md justify-between">
-      <Link to="/" className="relative">
-        <p className="font-logo text-3xl text-white drop-shadow-lg">Campin</p>
-        <Lottie
-          options={defaultOptions}
-          style={{ position: "absolute", left: -50, top: -7 }}
-          height={50}
-          width={50}
-        />
-      </Link>
+    <div className="h-16 bg-campgreen flex items-center px-12 shadow-md justify-between overflow-hidden">
+      <div className="animate-comeFromTop">
+        <Link to="/" className="relative">
+          <p className="font-logo text-3xl text-white drop-shadow-lg">Campin</p>
+          <Lottie
+            options={defaultOptions}
+            style={{ position: "absolute", left: -50, top: -40 }}
+            height={50}
+            width={50}
+          />
+        </Link>
+      </div>
 
-      <div>
+      <div className="animate-comeFromRight">
         {isLoggedIn ? (
           <>
             <Link to="/account">

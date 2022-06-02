@@ -14,17 +14,16 @@ const Details = ({ campsite }) => {
     }
   }, [campsite, navigate]);
   if (!campsite) return <></>;
-  console.log(campsite);
   return (
     <div className="px-3 lg:px-7 py-2 lg:py-5 ">
       <div className="bg-gray-100 relative p-3 md:p-5 lg:p-8 rounded-lg w-full ">
-        <p className="text-2xl font-semibold">
+        <p className="text-2xl font-semibold animate-comeWithScale">
           {campsite.title}
           <span className="text-xl text-gray-500 ml-3">
             {campsite.location}
           </span>
         </p>
-        <div className="mt-2">
+        <div className="mt-2 animate-comeFromLeft inline-block">
           <Rating
             name="read-only"
             value={campsite?.rate}
@@ -47,7 +46,7 @@ const Details = ({ campsite }) => {
           <GiBarracksTent className="bg-white p-2 rounded-full text-4xl" />
         </div>
         <div className="w-full flex flex-col lg:flex-row mt-6">
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2  animate-comeWithOpacity">
             <p className="tracking-wider text-xl leading-loose">
               {campsite.desc} <br />
               <br /> {campsite.desc}
