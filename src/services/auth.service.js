@@ -4,19 +4,13 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 console.log("API_URL");
 console.log(API_URL);
-const signup = (email, password) => {
+const signup = (formValues) => {
   return axios
     .post("https://campinbackend.azurewebsites.net/api/Account/register", {
-      firstName: "name",
-      lastName: "name",
-      email: "name@gmail.com",
-      userName: "name123",
+      ...formValues,
       roles: 1,
-      password: "123Salam!",
-      confirmPassword: "123Salam!",
     })
     .then((response) => {
-      console.log(response);
       return response.data;
     });
 };

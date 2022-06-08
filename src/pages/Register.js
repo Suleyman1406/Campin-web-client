@@ -1,17 +1,37 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import authService from "../services/auth.service";
+import HashLoader from "react-spinners/HashLoader";
+
+const INITIAL_FORM_VALUES = {
+  firstName: "",
+  lastName: "",
+  userName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
+const override = {
+  display: "block",
+  margin: "0 10 0 10px",
+  borderColor: "red",
+};
 
 const Register = () => {
+  const [formValues, setFormValues] = useState(INITIAL_FORM_VALUES);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      await authService.signup("user123@example.com", "123Salam!").then(
+      await authService.signup(formValues).then(
         () => {
-          // navigate("/home");
-          // window.location.reload();
+          setLoading(false);
+          navigate("/login");
         },
         (error) => {
+          setLoading(false);
           console.log(error);
         }
       );
@@ -39,54 +59,120 @@ const Register = () => {
                 <p class="text-center font-semibold mx-4 mb-0">REGISTER</p>
               </div>
 
-              <div class="mb-6">
+              <div class="mb-4">
                 <input
                   type="text"
                   required
+                  value={formValues.firstName}
+                  onChange={(e) =>
+                    setFormValues((prev) => ({
+                      ...prev,
+                      firstName: e.target.value,
+                    }))
+                  }
                   class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-campgreen/50 focus:border-green-500 focus:outline-none"
                   id="exampleFormControlInput2"
-                  placeholder="Full Name"
+                  placeholder="First Name"
+                />
+              </div>
+              <div class="mb-4">
+                <input
+                  type="text"
+                  required
+                  value={formValues.lastName}
+                  onChange={(e) =>
+                    setFormValues((prev) => ({
+                      ...prev,
+                      lastName: e.target.value,
+                    }))
+                  }
+                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-campgreen/50 focus:border-green-500 focus:outline-none"
+                  id="exampleFormControlInput2"
+                  placeholder="Last Name"
+                />
+              </div>
+              <div class="mb-4">
+                <input
+                  type="text"
+                  required
+                  value={formValues.userName}
+                  onChange={(e) =>
+                    setFormValues((prev) => ({
+                      ...prev,
+                      userName: e.target.value,
+                    }))
+                  }
+                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-campgreen/50 focus:border-green-500 focus:outline-none"
+                  id="exampleFormControlInput2"
+                  placeholder="Username"
                 />
               </div>
 
-              <div class="mb-6">
+              <div class="mb-4">
                 <input
                   type="email"
                   required
+                  value={formValues.email}
+                  onChange={(e) =>
+                    setFormValues((prev) => ({
+                      ...prev,
+                      email: e.target.value,
+                    }))
+                  }
                   class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-campgreen/50 focus:border-green-500 focus:outline-none"
                   id="exampleFormControlInput2"
                   placeholder="Email address"
                 />
               </div>
 
-              <div class="mb-6">
+              <div class="mb-4">
                 <input
                   type="password"
                   required
+                  value={formValues.password}
+                  onChange={(e) =>
+                    setFormValues((prev) => ({
+                      ...prev,
+                      password: e.target.value,
+                    }))
+                  }
                   class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-campgreen/50 focus:border-green-500 focus:outline-none"
                   id="exampleFormControlInput2"
                   placeholder="Password"
                 />
               </div>
 
-              <div class="mb-6">
+              <div class="mb-4">
                 <input
                   type="password"
                   required
+                  value={formValues.confirmPassword}
+                  onChange={(e) =>
+                    setFormValues((prev) => ({
+                      ...prev,
+                      confirmPassword: e.target.value,
+                    }))
+                  }
                   class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-campgreen/50 focus:border-green-500 focus:outline-none"
                   id="exampleFormControlInput2"
                   placeholder="Confirm Password"
                 />
               </div>
 
-              <div class="flex justify-between items-center mb-6">
+              <div class="flex justify-between items-center mb-4">
                 <div class="text-center lg:text-left">
                   <button
                     type="submit"
                     onClick={handleLogin}
-                    class="inline-block px-7 py-3 bg-campgreen/80 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-campgreen/90 hover:shadow-lg focus:bg-campgreen/100 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-campgreen/100 active:translate-y-1 active:shadow-lg transition duration-150 ease-in-out"
+                    class="inline-block w-full px-7 py-3 bg-campgreen/80 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-campgreen/90 hover:shadow-lg focus:bg-campgreen/100 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-campgreen/100 active:translate-y-1 active:shadow-lg transition duration-150 ease-in-out"
                   >
-                    Register
+                    <span className="mr-4">Register</span>
+                    <HashLoader
+                      color={"white"}
+                      loading={loading}
+                      cssOverride={override}
+                      size={20}
+                    />
                   </button>
                   <p class="text-sm font-semibold mt-2 pt-1 mb-0">
                     Already have an account?
