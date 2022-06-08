@@ -4,6 +4,8 @@ import { BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
 import { MdOutlineAccountCircle, MdOutlineCreate } from "react-icons/md";
 import Lottie from "react-lottie";
 import animationData from "../../lotties/caravan-lottie-animation.json";
+import authService from "../../services/auth.service";
+
 const Navbar = () => {
   const defaultOptions = {
     loop: true,
@@ -13,7 +15,10 @@ const Navbar = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-  const [isLoggedIn, setisLoggedIn] = useState(true);
+  const currentUser = authService.getCurrentUser();
+  console.log("currentUser");
+  console.log(currentUser);
+  const [isLoggedIn, setisLoggedIn] = useState(currentUser !== null);
   return (
     <div className="h-16 bg-campgreen flex items-center px-12 shadow-md justify-between overflow-hidden">
       <div className="animate-comeFromTop">
@@ -35,7 +40,10 @@ const Navbar = () => {
               </button>
             </Link>
             <button
-              onClick={() => setisLoggedIn(false)}
+              onClick={() => {
+                authService.logout();
+                window.location.reload();
+              }}
               className=" px-4 py-1.5 hover:shadow-md text-white border-gray-200  border border-dashed hover:border-solid duration-150 hover:shadow-gray-200"
             >
               <BiLogOutCircle className="inline-block -translate-y-[1px] text-[1rem]" />{" "}

@@ -2,8 +2,6 @@ import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-console.log("API_URL");
-console.log(API_URL);
 const signup = (formValues) => {
   return axios
     .post("https://campinbackend.azurewebsites.net/api/Account/register", {
@@ -27,7 +25,7 @@ const login = (email, password) => {
     .then((response) => {
       console.log(response);
       if (response.data.data.jwToken) {
-        localStorage.setItem("user", JSON.stringify(response.data));
+        localStorage.setItem("user", JSON.stringify(response.data.data));
       }
       return response.data;
     });
