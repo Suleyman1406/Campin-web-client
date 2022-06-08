@@ -6,7 +6,7 @@ console.log("API_URL");
 console.log(API_URL);
 const signup = (email, password) => {
   return axios
-    .post(API_URL + "/Account/register", {
+    .post("https://campinbackend.azurewebsites.net/api/Account/register", {
       firstName: "name",
       lastName: "name",
       email: "name@gmail.com",
@@ -23,7 +23,7 @@ const signup = (email, password) => {
 
 const login = (email, password) => {
   return axios
-    .post(API_URL + "/Account/authenticate", {
+    .post("https://campinbackend.azurewebsites.net/api/Account/authenticate", {
       email,
       password,
     })
