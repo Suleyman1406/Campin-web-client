@@ -51,7 +51,7 @@ const Search = () => {
             <div>
               <Typed
                 strings={["Love camping and glamping?"]}
-                typeSpeed={60}
+                typeSpeed={70}
                 backSpeed={0}
                 startDelay={1000}
               >
@@ -64,8 +64,8 @@ const Search = () => {
                   "Then you are in the right place.",
                   "Then you are in the Best Place.",
                 ]}
-                typeSpeed={80}
-                backSpeed={80}
+                typeSpeed={50}
+                backSpeed={50}
                 startDelay={2500}
                 smartBackspace={true}
               >

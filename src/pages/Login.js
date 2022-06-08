@@ -1,7 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import authService from "../services/auth.service";
+import HashLoader from "react-spinners/HashLoader";
+
+const INITIAL_FORM_VALUES = {
+  email: "",
+  password: "",
+};
+const override = {
+  display: "block",
+  margin: "0 10 0 10px",
+  borderColor: "red",
+};
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [formValues, setFormValues] = useState(INITIAL_FORM_VALUES);
+  const [loading, setLoading] = useState(false);
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await authService.login(formValues.email, formValues.password).then(
+        (e) => {
+          console.log(e);
+          setLoading(false);
+          navigate("/");
+        },
+        (error) => {
+          setLoading(false);
+          console.log(error);
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <section className="h-screen">
       <div className="px-6 h-full text-gray-800">
@@ -17,7 +52,7 @@ const Login = () => {
             <p className="font-logo text-3xl text-campgreen font-extrabold mb-3">
               Campin
             </p>
-            <form>
+            <form onSubmit={handleLogin}>
               <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                 <p className="text-center font-semibold mx-4 mb-0">LOGIN</p>
               </div>
@@ -25,6 +60,14 @@ const Login = () => {
               <div className="mb-6">
                 <input
                   type="text"
+                  value={formValues.email}
+                  onChange={(e) =>
+                    setFormValues((prev) => ({
+                      ...prev,
+                      email: e.target.value,
+                    }))
+                  }
+                  required
                   className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-campgreen/50 focus:border-green-500 focus:outline-none"
                   id="exampleFormControlInput2"
                   placeholder="Email address"
@@ -34,6 +77,14 @@ const Login = () => {
               <div className="mb-6">
                 <input
                   type="password"
+                  value={formValues.password}
+                  onChange={(e) =>
+                    setFormValues((prev) => ({
+                      ...prev,
+                      password: e.target.value,
+                    }))
+                  }
+                  required
                   className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white hover:border-campgreen/50 focus:border-green-500 focus:outline-none"
                   id="exampleFormControlInput2"
                   placeholder="Password"
@@ -49,7 +100,7 @@ const Login = () => {
                   />
                   <label
                     className="form-check-label inline-block text-gray-800"
-                    for="exampleCheck2"
+                    htmlFor="exampleCheck2"
                   >
                     Remember me
                   </label>
@@ -62,9 +113,16 @@ const Login = () => {
               <div className="text-center lg:text-left">
                 <button
                   type="submit"
-                  className="inline-block px-7 py-3 bg-campgreen/80 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-campgreen/90 hover:shadow-lg focus:bg-campgreen/100 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-campgreen/100 active:translate-y-1 active:shadow-lg transition duration-150 ease-in-out"
+                  disabled={loading}
+                  className="inline-block disabled:opacity-80 disabled:cursor-not-allowed px-7 py-3 bg-campgreen/80 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-campgreen/90 hover:shadow-lg focus:bg-campgreen/100 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-campgreen/100 active:translate-y-1 active:shadow-lg transition duration-150 ease-in-out"
                 >
-                  Login
+                  <span className="mr-4">Login</span>
+                  <HashLoader
+                    color={"white"}
+                    loading={loading}
+                    cssOverride={override}
+                    size={20}
+                  />
                 </button>
                 <p className="text-sm font-semibold mt-2 pt-1 mb-0">
                   Don't have an account?

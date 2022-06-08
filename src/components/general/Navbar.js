@@ -17,14 +17,11 @@ const Navbar = () => {
   return (
     <div className="h-16 bg-campgreen flex items-center px-12 shadow-md justify-between overflow-hidden">
       <div className="animate-comeFromTop">
-        <Link to="/" className="relative">
-          <p className="font-logo text-3xl text-white drop-shadow-lg">Campin</p>
-          <Lottie
-            options={defaultOptions}
-            style={{ position: "absolute", left: -50, top: -40 }}
-            height={50}
-            width={50}
-          />
+        <Link to="/" className="flex flex-row">
+          <Lottie options={defaultOptions} height={50} width={50} />
+          <p className="font-logo text-3xl text-white drop-shadow-lg translate-y-[0.45rem]">
+            Campin
+          </p>
         </Link>
       </div>
 
@@ -37,7 +34,10 @@ const Navbar = () => {
                 Account
               </button>
             </Link>
-            <button className=" px-4 py-1.5 hover:shadow-md text-white border-gray-200  border border-dashed hover:border-solid duration-150 hover:shadow-gray-200">
+            <button
+              onClick={() => setisLoggedIn(false)}
+              className=" px-4 py-1.5 hover:shadow-md text-white border-gray-200  border border-dashed hover:border-solid duration-150 hover:shadow-gray-200"
+            >
               <BiLogOutCircle className="inline-block -translate-y-[1px] text-[1rem]" />{" "}
               Logout
             </button>

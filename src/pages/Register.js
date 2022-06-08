@@ -1,7 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import authService from "../services/auth.service";
 
 const Register = () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await authService.signup("user123@example.com", "123Salam!").then(
+        () => {
+          // navigate("/home");
+          // window.location.reload();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <section class="h-screen">
       <div class="px-6 h-full text-gray-800">
@@ -66,6 +83,7 @@ const Register = () => {
                 <div class="text-center lg:text-left">
                   <button
                     type="submit"
+                    onClick={handleLogin}
                     class="inline-block px-7 py-3 bg-campgreen/80 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-campgreen/90 hover:shadow-lg focus:bg-campgreen/100 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-campgreen/100 active:translate-y-1 active:shadow-lg transition duration-150 ease-in-out"
                   >
                     Register
