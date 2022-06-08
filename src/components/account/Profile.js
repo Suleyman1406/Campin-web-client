@@ -116,7 +116,7 @@ const Profile = ({ currentUser }) => {
           size="small"
           type={"email"}
           disabled={true}
-          value={formValues.userName}
+          value={formValues.email}
           placeholder="Please write your email"
           variant="outlined"
           className="w-full mb-3 cursor-not-allowed"

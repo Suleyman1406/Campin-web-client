@@ -18,16 +18,6 @@ const Account = () => {
       navigate("/login");
     }
   }, []);
-  const notify = () =>
-    toast.error("🦄 Wow so easy!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   console.log(currentUser);
   return currentUser ? (
     <>
@@ -50,18 +40,6 @@ const Account = () => {
           <Sidebar selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
         </div>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      {/* Same as */}
       <ToastContainer />
     </>
   ) : (

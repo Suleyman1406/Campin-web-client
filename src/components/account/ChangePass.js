@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import userService from "../../services/user.service";
+import { toast } from "react-toastify";
 import { HashLoader } from "react-spinners";
 
 const StyledTextField = styled(TextField)({
@@ -30,6 +31,36 @@ const ChangePass = (currentUser) => {
   console.log();
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formValues.confirmPassword !== formValues.password) {
+      toast.error("Passwords must be same.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    const regex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+    if (!regex.test(formValues.password)) {
+      toast.error(
+        "Password must be contain minimum eight characters, at least one letter, one number and one special character.",
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
+      return;
+    }
     setLoading(true);
     try {
       await userService
@@ -40,6 +71,15 @@ const ChangePass = (currentUser) => {
         )
         .then((response) => {
           setLoading(false);
+          toast.success("Password changed successfully!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         });
     } catch (err) {
       console.log(err);
