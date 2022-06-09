@@ -35,7 +35,7 @@ const TopCampsites = () => {
                 className="rounded-3xl w-full h-[300px] object-cover group-hover:-translate-y-6 duration-500"
               />
               <div className="absolute p-2 w-[80%] group-hover:translate-y-6 h-[200px] bg-white -translate-x-[50%] -translate-y-[25%] shadow-md top-[50%] left-[50%] duration-300 rounded-[24px]">
-                <p className="md:text-lg font-semibold">{campsite?.title}</p>
+                <p className="md:text-lg font-semibold">{campsite?.name}</p>
                 <Rating
                   name="read-only"
                   value={campsite?.rate}
@@ -60,7 +60,7 @@ const TopCampsites = () => {
                 </p>
 
                 <Link
-                  to={`/details/${campsite.id}`}
+                  to={`/details/${campsite.vacationSpotID}`}
                   className="text-white text-sm  font-semibold inline-block absolute right-2 bottom-2  px-2 py-1 bg-yellow-400 rounded-lg hover:opacity-80 duration-150 active:bg-yellow-300 active:translate-y-[0.1rem]"
                 >
                   Click to Details...

@@ -16,6 +16,28 @@ const getCampsitesByLocations = (locations) => {
       return response.data;
     });
 };
-const campsiteService = { getCampsites, getCampsitesByLocations };
+
+const getCampsiteById = (id) => {
+  return axios
+    .get(`https://campinbackend.azurewebsites.net/api/v1/Campsite/${id}`)
+    .then((response) => {
+      return response.data;
+    });
+};
+
+const getCampsiteImagesUrl = (id) => {
+  return axios
+    .get(`https://campinbackend.azurewebsites.net/api/v1/Link/${id}?id=${id}`)
+    .then((response) => {
+      return response.data;
+    });
+};
+
+const campsiteService = {
+  getCampsites,
+  getCampsitesByLocations,
+  getCampsiteById,
+  getCampsiteImagesUrl,
+};
 
 export default campsiteService;

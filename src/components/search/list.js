@@ -22,7 +22,7 @@ const CampsitesList = ({ setPosition, campsites }) => {
           }
         >
           <Link
-            to={`/details/${campsite.id}`}
+            to={`/details/${campsite.vacationSpotID}`}
             className="text-white text-xs md:text-base font-semibold inline-block absolute right-5 bottom-3 lg:bottom-auto lg:top-5 px-2 py-1 bg-yellow-400 rounded-lg hover:opacity-80 duration-150 active:bg-yellow-300 active:translate-y-[0.1rem]"
           >
             Click to Details...
