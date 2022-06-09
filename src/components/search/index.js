@@ -21,6 +21,14 @@ const Search = () => {
     lng: Number(campsites[0]?.lng || 0),
   };
   const [position, setPosition] = useState(defaultPosition);
+  useEffect(() => {
+    if (campsites && campsites.length > 0) {
+      setPosition({
+        lat: Number(campsites[0]?.lat || 0),
+        lng: Number(campsites[0]?.lng || 0),
+      });
+    }
+  }, [campsites]);
   return (
     <div className="">
       <Filter />
