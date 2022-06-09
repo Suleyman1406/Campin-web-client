@@ -15,6 +15,7 @@ const StyledAutocomplete = styled(Autocomplete)({
 
 const staticDestinations = [
   { label: "Antalya" },
+  { label: "Muğla" },
   { label: "Bodrum" },
   { label: "Izmir" },
   { label: "Istanbul" },
@@ -34,11 +35,10 @@ const Search = () => {
   }, [searchValue]);
   const search = (e) => {
     e.preventDefault();
-    console.log("geldi");
     if (searchValue && searchValue.length > 0) {
-      let searchKey = String(searchValue[0].label).toLowerCase();
+      let searchKey = String(searchValue[0].label);
       for (var i = 1; i < searchValue.length; i++)
-        searchKey += `-${String(searchValue[i].label).toLowerCase()}`;
+        searchKey += `-${String(searchValue[i].label)}`;
       navigate(`/search/${searchKey}`);
     }
   };

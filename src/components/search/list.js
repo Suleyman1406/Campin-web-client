@@ -1,8 +1,8 @@
 import { Rating } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import campsites from "../../static/campsites.json";
-const CampsitesList = ({ setPosition }) => {
+// import campsites from "../../static/campsites.json";
+const CampsitesList = ({ setPosition, campsites }) => {
   const [selectedCampsite, setSelectedCampsite] = useState(0);
   return (
     <div className="w-full lg:p-2 h-[75vh] overflow-auto">
@@ -11,7 +11,10 @@ const CampsitesList = ({ setPosition }) => {
           key={idx}
           onClick={() => {
             setSelectedCampsite(idx);
-            setPosition({ lat: campsite.lat, lng: campsite.lng });
+            setPosition({
+              lat: Number(campsite.lat),
+              lng: Number(campsite.lng),
+            });
           }}
           className={
             "w-full cursor-pointer animate-comeFromLeft hover:bg-gray-100 relative h-44 rounded-lg mb-6 shadow-sm overflow-hidden shadow-" +
@@ -26,7 +29,7 @@ const CampsitesList = ({ setPosition }) => {
           </Link>
           <div className="w-[30%] md:w-[20%] float-left">
             <img
-              src={campsite.image}
+              src={campsite.image || `/images/blank-image-${(idx % 2) + 1}.jpg`}
               alt={campsite.name}
               className="w-full object-cover h-44 rounded-tl-lg rounded-bl-lg"
             />
@@ -57,9 +60,9 @@ const CampsitesList = ({ setPosition }) => {
               </span>
             </div>
             <p className="text-xs md:text-base">
-              {campsite.desc.length < 250
-                ? campsite.desc
-                : campsite.desc.substring(0, 250) + "..."}
+              {campsite.description.length < 250
+                ? campsite.description
+                : campsite.description.substring(0, 250) + "..."}
             </p>
           </div>
         </div>
