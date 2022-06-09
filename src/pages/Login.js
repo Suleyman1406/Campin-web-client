@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../services/auth.service";
 import HashLoader from "react-spinners/HashLoader";
+import { toast, ToastContainer } from "react-toastify";
 
 const INITIAL_FORM_VALUES = {
   email: "",
@@ -30,10 +31,28 @@ const Login = () => {
         (error) => {
           setLoading(false);
           console.log(error);
+          toast.error("Error occurred!!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         }
       );
     } catch (err) {
       console.log(err);
+      toast.error("Error occurred!!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
@@ -138,6 +157,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </section>
   );
 };

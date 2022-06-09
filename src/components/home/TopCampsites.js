@@ -9,7 +9,7 @@ const TopCampsites = () => {
   useEffect(() => {
     campsiteService.getCampsites().then((response) => {
       console.log("response");
-      console.log(response);
+      response.shift();
       setCampsites([...response, ...response]);
     });
   }, []);

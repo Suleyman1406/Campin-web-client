@@ -65,11 +65,29 @@ const Register = () => {
         (error) => {
           setLoading(false);
           console.log(error);
+          toast.error("Username or email is already used!!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         }
       );
     } catch (err) {
       setLoading(false);
       console.log(err);
+      toast.error("Error occurred!!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
   return (
