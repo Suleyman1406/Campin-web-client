@@ -2,19 +2,26 @@ import React, { useEffect, useState } from "react";
 import Filter from "./Filter";
 import CampsitesList from "./list";
 import Map from "../general/Map";
-import campsites from "../../static/campsites.json";
 import campsiteService from "../../services/campsite.service";
 import { useParams } from "react-router-dom";
+import { HashLoader } from "react-spinners";
 const Search = () => {
   const params = useParams();
   const [campsites, setCampsites] = useState([]);
+  const [loading, setLoading] = useState(true);
+  console.log(params);
+  const [searchValue, setSearchValue] = useState(params?.searchKey);
   useEffect(() => {
-    campsiteService
-      .getCampsitesByLocations(params?.searchKey)
-      .then((response) => {
+    try {
+      campsiteService.getCampsitesByLocations(searchValue).then((response) => {
         console.log(response);
         setCampsites(response);
+        setLoading(false);
       });
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+    }
   }, []);
   const defaultPosition = {
     lat: Number(campsites[0]?.lat || 0),
@@ -31,7 +38,7 @@ const Search = () => {
   }, [campsites]);
   return (
     <div className="">
-      <Filter />
+      <Filter searchKey={searchValue} setSearchKey={setSearchValue} />
       <div className="px-5 my-10 flex xl:flex-row flex-col-reverse items-center xl:items-start">
         {campsites && campsites?.length > 0 && (
           <>
@@ -48,6 +55,20 @@ const Search = () => {
               />
             </div>
           </>
+        )}
+        {loading && (
+          <div className="w-full h-full min-h-[70vh] flex justify-center items-center">
+            <HashLoader color={"#84cc16"} loading={true} size={100} />
+          </div>
+        )}
+        {campsites?.length <= 0 && !loading && (
+          <div className="w-full min-h-[80vh] flex justify-center">
+            <img
+              src="https://cdn.dribbble.com/users/1507491/screenshots/4945826/media/116a8ebc414c519ad1cfc0fe63f79d3e.jpg?compress=1&resize=800x600&vertical=top"
+              alt="nothing to see"
+              className="[80%] xs:[60%] md:w-[40%] h-fit object-contain"
+            />
+          </div>
         )}
       </div>
     </div>

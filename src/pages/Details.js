@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import Navbar from "../components/general/Navbar";
 import Footer from "../components/general/Footer";
 import DetailComponent from "../components/details";
-import campsites from "../static/campsites.json";
 import campsiteService from "../services/campsite.service";
 import { HashLoader } from "react-spinners";
 

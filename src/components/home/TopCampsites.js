@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import { Link } from "react-router-dom";
 import campsiteService from "../../services/campsite.service";
-// import campsites from "../../static/campsites.json";
 const TopCampsites = () => {
   const [campsites, setCampsites] = useState([]);
   useEffect(() => {

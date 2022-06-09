@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { DateRangePicker } from "react-date-range";
 import { MdOutlineDateRange } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const StyledAutocomplete = styled(Autocomplete)({
   "& label.Mui-focused": {
@@ -41,19 +42,21 @@ var monthArr = [
   "Dec",
 ];
 
-const Filter = () => {
+const Filter = ({ searchKey, setSearchKey }) => {
   const [isOpenDate, setOpenDate] = useState(false);
   const [selectionRange, setSelectionRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
     key: "selection",
   });
+  const searchLabels = searchKey.split("-").map((item) => ({ label: item }));
   const [guestCount, setGuestCount] = useState("1");
   const startDate = selectionRange.startDate;
   const endDate = selectionRange.endDate;
   const handleSelect = (date) => {
     setSelectionRange(date.selection);
   };
+
   return (
     <div className="w-full h-fit space-y-2 sm:space-y-0 sm:h-[4.5rem] z-10 sticky top-0 py-2 px-6 rounded-b-[3rem] flex flex-col sm:flex-row justify-center  items-center shadow-md shadow-gray-400 bg-campgreen">
       <div className="w-[90%] sm:min-w-[25%] sm:max-w-[50%] h-fit px-3 pt-2 mx-3 bg-white shadow-sm shadow-white rounded-xl">
@@ -62,8 +65,9 @@ const Filter = () => {
           multiple
           options={staticDestinations}
           onChange={(e, record) => {
-            // setSearchValue(record);
+            // setSearchKey(record);
           }}
+          value={searchLabels}
           autoComplete
           limitTags={3}
           includeInputInList

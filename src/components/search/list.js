@@ -1,7 +1,6 @@
 import { Rating } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import campsites from "../../static/campsites.json";
 const CampsitesList = ({ setPosition, campsites }) => {
   const [selectedCampsite, setSelectedCampsite] = useState(0);
   return (
@@ -37,7 +36,7 @@ const CampsitesList = ({ setPosition, campsites }) => {
           <div className="w-[70%] md:w-[80%] p-3 flex flex-col ">
             <p>
               <span className="text-sm md:text-lg font-semibold">
-                {campsite.title}
+                {campsite.name}
               </span>
               <span className="text-sm md:text-base ml-1 text-gray-400 font-medium">
                 {campsite.location}
