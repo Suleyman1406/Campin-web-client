@@ -6,6 +6,7 @@ import { styled } from "@mui/material/styles";
 // import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { HashLoader } from "react-spinners";
 import userService from "../../services/user.service";
+import { toast } from "react-toastify";
 
 const StyledTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -17,19 +18,24 @@ const StyledTextField = styled(TextField)({
     },
   },
 });
+const override = {
+  display: "block",
+  margin: "0 10 0 10px",
+  borderColor: "red",
+};
 const INITIAL_FORM_VALUE = {
-  imageUrl: "",
+  photoUrl: "",
   firstName: "",
   lastName: "",
   userName: "",
   email: "",
   phoneNumber: "",
-  dateOfBirth: "",
 };
 const Profile = ({ currentUser }) => {
   // const [dateValue, setDateValue] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
   const [formValues, setFormValues] = useState(INITIAL_FORM_VALUE);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     userService.getUserInfo(currentUser.id).then((e) => setUserInfo(e.data));
   }, [currentUser.id]);
@@ -37,31 +43,59 @@ const Profile = ({ currentUser }) => {
     if (userInfo) {
       setFormValues((prev) => ({
         ...prev,
-        userName: userInfo.userName,
-        email: userInfo.email,
+        ...userInfo,
       }));
     }
   }, [userInfo]);
-  const handleSubmit = (e) => {
-    e.pereventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await userService
+        .updateUserInfo(currentUser.id, formValues)
+        .then((response) => {
+          console.log(response);
+          setLoading(false);
+          toast.success("User information successfully updated!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        });
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+    }
   };
 
   return userInfo ? (
     <div className="flex flex-col animate-clipAnim1 justify-center items-center">
-      <img
-        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
-        alt="profile"
-        className="w-36 h-36 rounded-full object-cover p-1 bg-campgreen/50 shadow-md"
-      />
-      <form className="w-[80%] mt-10">
+      {formValues?.photoUrl ? (
+        <img
+          src={formValues?.photoUrl}
+          alt="profile"
+          className="w-36 h-36 rounded-full object-cover p-1 bg-campgreen/50 shadow-md"
+        />
+      ) : (
+        <img
+          src="images/blank-profile-image.png"
+          alt="profile"
+          className="w-36 h-36 rounded-full object-cover p-1  shadow-md"
+        />
+      )}
+      <form className="w-[80%] mt-10" onSubmit={handleSubmit}>
         <StyledTextField
           id="outlined-basic"
           label="Profile Image URL"
           size="small"
           type={"text"}
-          value={formValues.imageUrl}
+          value={formValues.photoUrl}
           onChange={(e) =>
-            setFormValues((prev) => ({ ...prev, imageUrl: e.target.value }))
+            setFormValues((prev) => ({ ...prev, photoUrl: e.target.value }))
           }
           // required
           placeholder="Please write profile image url"
@@ -79,7 +113,6 @@ const Profile = ({ currentUser }) => {
           onChange={(e) =>
             setFormValues((prev) => ({ ...prev, firstName: e.target.value }))
           }
-          defaultValue={currentUser.firstName}
           placeholder="Please write your first name"
           variant="outlined"
           className="w-full mb-3"
@@ -131,6 +164,7 @@ const Profile = ({ currentUser }) => {
           onChange={(e) =>
             setFormValues((prev) => ({ ...prev, phoneNumber: e.target.value }))
           }
+          required
           placeholder="Please write your phone number"
           variant="outlined"
           className="w-full mb-3"
@@ -157,7 +191,13 @@ const Profile = ({ currentUser }) => {
           type="submit"
           className="w-full px-3 py-1 bg-campgreen rounded text-white tracking-widest font-semibold ml-auto hover:opacity-90 duration-150 active:translate-y-1"
         >
-          Save
+          <span className="mr-4">Save</span>
+          <HashLoader
+            color={"white"}
+            loading={loading}
+            cssOverride={override}
+            size={20}
+          />
         </button>
       </form>
     </div>

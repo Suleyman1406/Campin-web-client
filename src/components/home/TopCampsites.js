@@ -1,9 +1,18 @@
 import { Rating } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import { Link } from "react-router-dom";
-import campsites from "../../static/campsites.json";
+import campsiteService from "../../services/campsite.service";
+// import campsites from "../../static/campsites.json";
 const TopCampsites = () => {
+  const [campsites, setCampsites] = useState([]);
+  useEffect(() => {
+    campsiteService.getCampsites().then((response) => {
+      console.log("response");
+      console.log(response);
+      setCampsites([...response, ...response]);
+    });
+  }, []);
   return (
     <>
       <div className="px-6 md:px-12 lg:px-20 pt-8 md:pt-16 pb-12 md:pb-24 bg-campgreen/50">
@@ -19,7 +28,9 @@ const TopCampsites = () => {
               className="min-w-[300px] md:min-w-[450px] cursor-pointer group relative m-1 "
             >
               <img
-                src={campsite?.image}
+                src={
+                  campsite?.image || `/images/blank-image-${(idx % 2) + 1}.jpg`
+                }
                 alt={campsite?.name}
                 className="rounded-3xl w-full h-[300px] object-cover group-hover:-translate-y-6 duration-500"
               />
@@ -36,16 +47,16 @@ const TopCampsites = () => {
                 <p className="text-xs md:text-base -translate-y-[0.35rem] font-medium text-gray-500 inline-block">
                   {campsite?.rate} of 5
                   <span className="ml-2 hover:underline text-yellow-500 ">
-                    {campsite?.reviews} reviews
+                    {campsite?.reviews || 0} reviews
                   </span>
                 </p>
                 <p className="text-xs md:text-sm text-gray-500 font-semibold px-2">
                   {campsite?.location}
                 </p>
                 <p className="py-1 px-2 text-xs md:text-sm tracking-wide">
-                  {campsite.desc.length <= 150
-                    ? campsite?.desc
-                    : campsite.desc.substring(0, 150) + "..."}
+                  {campsite?.description?.length <= 150
+                    ? campsite?.description
+                    : campsite.description.substring(0, 150) + "..."}
                 </p>
 
                 <Link

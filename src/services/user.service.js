@@ -11,9 +11,23 @@ const getUserInfo = (userId) => {
 };
 
 const updateUserInfo = (userId, userInfo) => {
-  return axios.post(
+  console.log(userId);
+  console.log({
+    firstName: userInfo.firstName,
+    lastName: userInfo.lastName,
+    photoUrl: userInfo.photoUrl,
+    phoneNumber: userInfo.phoneNumber,
+    userName: userInfo.userName,
+  });
+  return axios.put(
     `https://campinbackend.azurewebsites.net/api/Account/UpdateUser?userId=${userId}`,
-    {}
+    {
+      firstName: userInfo.firstName,
+      lastName: userInfo.lastName,
+      photoUrl: userInfo.photoUrl,
+      phoneNumber: userInfo.phoneNumber,
+      userName: userInfo.userName,
+    }
   );
 };
 
